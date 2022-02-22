@@ -5,18 +5,16 @@ import (
 	"net/http"
 
 	"github.com/End313234/basic-api-routing/src/handlers"
-	"github.com/go-chi/chi"
 )
 
 func init() {
-	// Instanciating the router for this file
-	router := chi.NewRouter()
-
-	// Adding the routes essentially
-	router.Get("/", GetPhrase)
-
-	// Creating our route
-	handlers.CreateRoute(router)
+	// Creating the route
+	route := handlers.Route{
+		Method:  "GET",
+		Pattern: "/",
+		Handler: GetPhrase,
+	}
+	route.Create()
 }
 
 // The route callback, it will give us the content on `src/data/phrases.json`
