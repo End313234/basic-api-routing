@@ -15,6 +15,14 @@ func init() {
 		Handler: GetPhrase,
 	}
 	route.Create()
+
+	// Optional usage
+	/*
+
+		route := handlers.Route{}
+		route.AddMethod("GET").AddPattern("/").AddHandler(GetPhrase).Create()
+
+	*/
 }
 
 // The route callback, it will give us the content on `src/data/phrases.json`
