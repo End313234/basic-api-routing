@@ -25,6 +25,8 @@ func init() {
 	*/
 }
 
+type GetAllPhrasesOutput = []string
+
 // The route callback, it will give us the content on `src/data/phrases.json`
 func GetAllPhrases(response http.ResponseWriter, request *http.Request) {
 	file, _ := ioutil.ReadFile("src/data/phrases.json")
