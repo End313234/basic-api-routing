@@ -1,4 +1,4 @@
-package api
+package phrases
 
 import (
 	"io/ioutil"
@@ -11,8 +11,8 @@ func init() {
 	// Creating the route
 	route := handlers.Route{
 		Method:  "GET",
-		Pattern: "/",
-		Handler: GetPhrase,
+		Pattern: "/phrases",
+		Handler: GetAllPhrases,
 	}
 	route.Create()
 
@@ -26,7 +26,7 @@ func init() {
 }
 
 // The route callback, it will give us the content on `src/data/phrases.json`
-func GetPhrase(response http.ResponseWriter, request *http.Request) {
+func GetAllPhrases(response http.ResponseWriter, request *http.Request) {
 	file, _ := ioutil.ReadFile("src/data/phrases.json")
 	response.Write(file)
 }
